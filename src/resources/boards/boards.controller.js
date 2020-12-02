@@ -1,18 +1,17 @@
 // TODO
 const persimon = require('../../utils/persimon');
 
-const db = persimon('/assets/pins.json');
+const db = persimon('/assets/boards.json');
 
 const getAll = (req, res) => {
-  const pins = db.all(); //añadirle un get ONe
-
-  return res.status(200).json(pins);
+  const boards = db.all(); //añadirle un get ONe
+  return res.status(200).json(boards);
 };
 
 const getOne = (req, res) => {
-  const pin = db.get(req.params.id);
+  const board = db.get(req.params.id);
 
-  return res.status(200).json(pin);
+  return res.status(200).json(board);
 };
 
 const create = (req, res) => {
@@ -22,15 +21,15 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-  const pinUpdated = db.update(req.params.id, req.body);
+  const boardUpdated = db.update(req.params.id, req.body);
   console.log(req.body);
 
-  return res.status(201).json(pinUpdated);
+  return res.status(201).json(boardUpdated);
 };
 
 const remove = (req, res) => {
-  const pin = db.delete(req.params.id);
-  return res.status(200).json(pin);
+  const board = db.delete(req.params.id);
+  return res.status(200).json(board);
 };
 
 module.exports = {
